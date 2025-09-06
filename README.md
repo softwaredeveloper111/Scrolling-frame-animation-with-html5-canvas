@@ -18,7 +18,7 @@
 ## javascript code
 
 
-const canvas =document.querySelector("canvas")
+>> const canvas =document.querySelector("canvas")
 const context = canvas.getContext("2d")
 // what ever we draw in canvas through we have to make context
 
@@ -33,17 +33,13 @@ const images = []
 function preloadImages() {
 
   for(let i=1;i<=frames.maxIndex;i++){
-     
-    const imageUrl = `./frames/frame_${i.toString().padStart(4,"0")}.jpeg`;
+     const imageUrl = `./frames/frame_${i.toString().padStart(4,"0")}.jpeg`;
     // console.log(imageUrl);
-
-    const img = new Image();
+     const img = new Image();
     img.src = imageUrl
     // console.log(img);
-    
     img.onload = ()=>{
-          
-           imagesLoaded++;
+          imagesLoaded++;
            if(imagesLoaded === frames.maxIndex){
             // console.log("all images loaded");
             // console.log(images);
@@ -51,8 +47,7 @@ function preloadImages() {
             startAnimation();
            }
     }
-
-    images.push(img)
+images.push(img)
 
   }
 
@@ -69,17 +64,13 @@ function loadImage(indx){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     // fit imgage with canvas with proper scale
-
     const scaleX = canvas.width / img.width;
     const scaleY = canvas.height / img.height;
     const scale =   Math.max(scaleX,scaleY)
-
     const newWidth = img.width*scale;
     const newHeight = img.height*scale;
-
     const offSetX = (canvas.width - newWidth) / 2;
     const offSetY = (canvas.height - newHeight) / 2 ;
-
     context.clearRect(0,0,canvas.width,canvas.height);
     context.imageSmoothingQuality="high";
     context.imageSmoothingEnabled = true;
