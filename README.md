@@ -18,7 +18,7 @@
 ## javascript code
 
 
->> const canvas =document.querySelector("canvas")
+ const canvas =document.querySelector("canvas")
 const context = canvas.getContext("2d")
 // what ever we draw in canvas through we have to make context
 
@@ -63,6 +63,7 @@ function loadImage(indx){
     const img = images[indx];
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    
     // fit imgage with canvas with proper scale
     const scaleX = canvas.width / img.width;
     const scaleY = canvas.height / img.height;
@@ -71,6 +72,7 @@ function loadImage(indx){
     const newHeight = img.height*scale;
     const offSetX = (canvas.width - newWidth) / 2;
     const offSetY = (canvas.height - newHeight) / 2 ;
+    
     context.clearRect(0,0,canvas.width,canvas.height);
     context.imageSmoothingQuality="high";
     context.imageSmoothingEnabled = true;
@@ -92,6 +94,7 @@ function startAnimation(){
       scrub: 2,
     }
   });
+
 
   tl.to(frames,{
     currentIndex:frames.maxIndex,
